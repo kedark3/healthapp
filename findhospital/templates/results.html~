@@ -2,11 +2,11 @@
 <html>
 <body>
     
-Hello!!
-
-
+{% if results==[] %}
+	Please go back and try another category!
+{% endif %}	
 {% for r in results %}
-{{r.provider_id}}-{{r.hospital_name}}<br>
+{{r.provider_id}}-{{r.hospital_name}} ---{{r.score}}<br>
 {% endfor %}
 
 </body>
