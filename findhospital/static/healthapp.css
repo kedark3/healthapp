@@ -1,0 +1,72 @@
+body{
+	 color: white;
+	 font-family: "Arial";
+	 align: center;
+	 }
+form{color:white;
+    float:left;}
+	 
+footer{
+	font-size: 75%
+}
+
+/*.leftfoot
+{
+	float: left;
+}
+
+.rightfoot
+{
+	float: right;
+}*/
+
+p {
+	 color:white;
+	 align: center;}
+	 
+ h1 {
+    font-family: "Verdana";
+	color:white;
+          
+    }
+	.fields label, .fields input {
+		float:left
+  display:inline-block;
+}
+
+
+
+	
+.selector input{
+    margin:0;padding:0;
+    -webkit-appearance:none;
+       -moz-appearance:none;
+            appearance:none;
+}
+.Veteran{background-image:url(http://s15.postimg.org/dm2mx7ttn/button_vet.png);}
+.Child{background-image:url(http://s2.postimg.org/fa2b7g8c9/button_child.png);}
+.CAH{background-image:url(http://s11.postimg.org/jm2nfsnxf/button_cah.png);}
+.ACH{background-image:url(http://s9.postimg.org/awcezr2un/button_ach.png);}
+
+.selector input:active +.options{opacity: .9;}
+.selector input:checked +.options{grayscale:0;)
+   
+            filter: none;
+}
+.options{
+    cursor:pointer;
+    background-size:contain;
+    background-repeat:no-repeat;
+    display:inline-block;
+    width:100px;height:70px;
+  
+    
+           filter: brightness(1.8) grayscale(0) opacity(1);
+}
+.options:hover{
+    -webkit-filter: brightness(1.3) grayscale(.4) opacity(.9);
+       -moz-filter: brightness(1.3) grayscale(.4) opacity(.9);
+            filter: brightness(1.3) grayscale(.4) opacity(.9);
+}
+
+

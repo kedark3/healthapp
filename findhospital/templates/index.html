@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+var x = document.getElementById("ip");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    //x.value = "Latitude: " + position.coords.latitude + 
+    //"<br>Longitude: " + position.coords.longitude;
+    document.getElementById('lat').value=position.coords.latitude;
+    document.getElementById('long').value=position.coords.longitude;
+}
+
+
+</script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Call Me a Doctor</title>
+     
+    <link rel="stylesheet" type="text/css" href="/static/healthapp.css"/>
+</head>
+	
+<body background="/static/bg.png" onload="getLocation()">
+ <h1 align="center" font="Arial"> <b> Where do I go get Medical Help?</b></h1>
+<p>Please allow location access.</p>
+
+<p>In the case of an immediate, life-threatening, time sensitive emergency please call 911</p>
+
+    <form method='GET' action='/home/hospital/'>
+ {% csrf_token %} 
+    <input type='hidden' name='latitude' value="" id="lat"/>
+    <input type='hidden' name='longitude' value="" id="long"/>
+
+  <label class="options Veteran"for="vet"></label>
+   <input type="radio" id="vet" name="type" value="ACUTE CARE - VETERANS ADMINISTRATION" checked> Are you a Veteran?<br>
+
+
+  <label class="options Child"for="child"></label>
+  <input type="radio" id="child" name="type" value="Childrens">Do you need to find a Childrens hospital?<br>
+ 
+
+  <label class="options ACH"for="ACH"></label>
+  <input type="radio" id="ACH" name="type" value="Acute Care Hospitals"> Do you have an issue that needs long term health care (From a week to multiple months)<br>
+
+ 
+  <label class="options CAH"for="CAH"></label>
+  <input type="radio" id=CAH name="type" value="Critical Access Hospitals"> Do you have an immediate health issue<br>
+  <input type="submit" Value="Find a hospital nearby"/>
+
+</form> 
+
+
+<!--<button onclick="getLocation()">Try It</button>-->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+<footer>
+Made for Charlotte Hack by: <br>
+Kedar Kulkarni,<br>
+Vaibhav Sapkal<br>
+and Thomas Neil Kattampallil<br>
+Using Healthcare data from Premier and geolocation using HTML5<br>
+Icons:<br>
+doll by Pavel N. from the Noun Project<br>
+Ambulance by Mark Wehrhahn from the Noun Project<br>
+Star by Arthur Shlain from the Noun Project<br>
+Hospital location by Ralf Schmitzer from the Noun Project<br>
+</footer>
+</body>
+</html>
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<body onload="getLocation()">
+
+<p>Please allow location access.</p>
+
+<p>In the case of an immediate, life-threatening, time sensitive emergency please call 911</p>
+
+
+
+
+
+<input type="hidden" id="demo" value=""></input>
+
+<script type="text/javascript">
+var x = document.getElementById("ip");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    //x.value = "Latitude: " + position.coords.latitude + 
+    //"<br>Longitude: " + position.coords.longitude;
+    document.getElementById('lat').value=position.coords.latitude;
+    document.getElementById('long').value=position.coords.longitude;
+}
+
+
+</script>
+    <form method='GET' action='/home/hospital/'>
+    {% csrf_token %} 
+    <input type='hidden' name='latitude' value="" id="lat"/>
+    <input type='hidden' name='longitude' value="" id="long"/>
+
+    <input type="radio" name="type" value="ACUTE CARE - VETERANS ADMINISTRATION" checked> Are you a Veteran?<br>
+   <input type="radio" name="type" value="Childrens">Do you need to find a Childrens hospital?<br>
+   
+  <input type="radio" name="type" value="Acute Care Hospitals"> Do you have an issue that needs long term health care (From a week to multiple months)<br>
+  <input type="radio" name="type" value="Critical Access Hospitals"> Do you have an immediate health issue<br>
+    <input type='submit' value="Find me a Hospital"/>
+    </form>
+
+{{location}}
+</body>
+</html>
+
+
